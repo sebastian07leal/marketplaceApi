@@ -1,16 +1,25 @@
-const express = require('express')
-const app = express()
-// eslint-disable-next-line no-undef
-const port = process.env.PORT || 8080
+/* eslint-disable no-undef */
+const express = require('express');
+const routers = require('./src/routes');
 
-app.get('/ping', (req, res) => {
-  res.send('Pong');
+const app = express();
+
+const port = process.env.PORT || 8080;
+
+app.use(express.json());
+
+app.use('/api', routers);
+
+app.use((_req, res) => {
+  res.status(404).json({ error: 'Ruta no encontrada' });
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// Manejo de errores globales
+app.use((err, _req, res) => {
+  console.error(err);
+  res.status(500).json({ error: 'Error interno del servidor' });
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Listening on port ${port}`)
 })
