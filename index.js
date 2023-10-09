@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
 const express = require('express');
+const cors = require('cors');
 const routers = require('./src/routes');
 
 const app = express();
 
 const port = process.env.PORT || 8080;
+
+app.use(cors());
 
 app.use(express.json());
 
