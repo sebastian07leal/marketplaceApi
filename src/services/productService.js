@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 require('dotenv').config();
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 
 class ProductService {
   _client;
@@ -9,7 +9,7 @@ class ProductService {
     try {
       this._client = new Pool({
         connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-      })
+      });
       
     } catch(error) {
       error.message = 'DB connection error';

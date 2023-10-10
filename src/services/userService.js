@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 require('dotenv').config();
 
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 const { createToken } = require('../utils/jwt');
 const { hashPassword } = require('../utils/hashUtil');
 const { generateUuid } = require('../utils/uuidUtil');
@@ -13,7 +13,7 @@ class UserService {
     try {
       this._client = new Pool({
         connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-      })
+      });
       
     } catch(error) {
       error.message = 'DB connection error';
@@ -33,8 +33,8 @@ class UserService {
     try {
       const { username: userName, password, role = 3 } = data;
 
-    const customId = generateUuid()
-    const passwordHashed = await hashPassword(password)    
+    const customId = generateUuid();
+    const passwordHashed = await hashPassword(password);    
 
     await this._client.query('INSERT INTO users (id, username, password, role) VALUES ($1, $2, $3, $4);', [
       customId,
@@ -51,9 +51,9 @@ class UserService {
     const payload = {
       customId,
       role,
-    }
+    };
 
-    const responseAuthToken =  createToken(payload)
+    const responseAuthToken =  createToken(payload);
 
       return responseAuthToken;
     } catch (error) {

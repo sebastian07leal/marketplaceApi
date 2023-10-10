@@ -1,17 +1,19 @@
 const Auth = require('../services/authService');
 
 const loginUser = async (req, res) => {
-  try {
-    const { headers } = req;
+    try {
+        const { headers } = req;
 
-    const response = await Auth.getInstance().login(headers);
+        const response = await Auth.getInstance().login(headers);
 
-    res.send(response);
-  } catch (error) {
-    res.status(403).json({ error: `Unauthenticated user: ${error.message}`});
-  }
-}
+        res.send(response);
+    } catch (error) {
+        res.status(403).json({
+            error: `Unauthenticated user: ${error.message}`,
+        });
+    }
+};
 
 module.exports = {
-  loginUser,
-}
+    loginUser,
+};

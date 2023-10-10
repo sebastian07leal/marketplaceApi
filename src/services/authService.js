@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 require('dotenv').config();
 
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 const { createToken } = require('../utils/jwt');
 const { verifyPassword } = require('../utils/hashUtil');
 
@@ -13,7 +13,7 @@ class AuthService {
     try {
       this._client = new Pool({
         connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-      })
+      });
       
     } catch(error) {
       error.message = 'DB connection error';
@@ -37,14 +37,14 @@ class AuthService {
         userName,
       ]);
 
-    await verifyPassword(password, responseHash.rows[0].password)    
+    await verifyPassword(password, responseHash.rows[0].password);    
 
     const payload = {
       id: responseHash.rows[0].id,
       role: responseHash.rows[0].role,
-    }
+    };
 
-    const responseAuthToken =  createToken(payload)
+    const responseAuthToken =  createToken(payload);
 
       return responseAuthToken;
     } catch (error) {
