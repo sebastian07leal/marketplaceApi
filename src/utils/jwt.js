@@ -1,5 +1,4 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 const createToken = (payload, time = '1d') => {
     const token = jwt.sign(payload, process.env.SECRET_KEY, {
@@ -15,7 +14,7 @@ const verifyToken = (token) => {
     return decoded;
 };
 
-module.exports = {
+export default {
     createToken,
     verifyToken,
 };

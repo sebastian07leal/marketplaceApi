@@ -28,5 +28,8 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+
+### Peroduct
 node_modules
+dist
 .env

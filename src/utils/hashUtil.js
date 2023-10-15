@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 
 const hashPassword = async (password) => {
     const hash = await bcrypt.hash(password, 10);
@@ -15,7 +15,7 @@ const verifyPassword = async (password, hash) => {
     return isPasswordCorrect;
 };
 
-module.exports = {
+export default {
     hashPassword,
     verifyPassword,
 };

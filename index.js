@@ -1,6 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const routers = require('./src/routes');
+import cors from 'cors';
+import express from 'express';
+
+import routers from './src/routes';
 
 const app = express();
 
@@ -23,5 +24,5 @@ app.use((err, _req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${port} at url localhost:${port}`);
 });

@@ -24,4 +24,5 @@ module.exports = {
         semi: ['error', 'always'],
         'no-console': ['warn', { allow: ['error'] }],
     },
+    ignorePatterns: ['dist/'],
 };

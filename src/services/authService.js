@@ -1,8 +1,10 @@
-require('dotenv').config();
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
 
-const { Pool } = require('pg');
-const { createToken } = require('../utils/jwt');
-const { verifyPassword } = require('../utils/hashUtil');
+import { createToken } from '../utils/jwt';
+import { verifyPassword } from '../utils/hashUtil';
+
+dotenv.config();
 
 class AuthService {
     _client;
@@ -51,4 +53,4 @@ class AuthService {
     }
 }
 
-module.exports = AuthService;
+export default AuthService;

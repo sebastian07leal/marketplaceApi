@@ -1,5 +1,7 @@
-require('dotenv').config();
-const { Pool } = require('pg');
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 class ProductService {
     _client;
@@ -91,4 +93,4 @@ class ProductService {
     }
 }
 
-module.exports = ProductService;
+export default ProductService;

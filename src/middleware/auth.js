@@ -1,4 +1,4 @@
-const { verifyToken } = require('../utils/jwt');
+import { verifyToken } from '../utils/jwt';
 
 function authMiddleware(req, res, next) {
     const {
@@ -22,4 +22,4 @@ function authMiddleware(req, res, next) {
     }
 }
 
-module.exports = { authMiddleware };
+export { authMiddleware };

@@ -1,4 +1,4 @@
-const UserService = require('../services/userService');
+import UserService from '../services/userService';
 
 const createUser = async (req, res) => {
     try {
@@ -26,7 +26,4 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = {
-    createUser,
-    deleteUser,
-};
+export { createUser, deleteUser };

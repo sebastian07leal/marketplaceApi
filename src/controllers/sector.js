@@ -1,4 +1,4 @@
-const SectorService = require('../services/sectorService');
+import SectorService from '../services/sectorService';
 
 const allSectors = async (_req, res) => {
     try {
@@ -41,8 +41,4 @@ const putSectorById = async (req, res) => {
     }
 };
 
-module.exports = {
-    allSectors,
-    createSector,
-    putSectorById,
-};
+export { allSectors, createSector, putSectorById };

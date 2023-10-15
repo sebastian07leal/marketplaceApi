@@ -1,5 +1,7 @@
-require('dotenv').config();
-const { Pool } = require('pg');
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 class SectorService {
     _client;
@@ -64,4 +66,4 @@ class SectorService {
     }
 }
 
-module.exports = SectorService;
+export default SectorService;

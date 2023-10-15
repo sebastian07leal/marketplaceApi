@@ -1,19 +1,16 @@
-const express = require('express');
-const { loginUser } = require('../controllers/auth');
-const { authMiddleware } = require('../middleware/auth');
-const { createUser, deleteUser } = require('../controllers/user');
-const {
-    allSectors,
-    createSector,
-    putSectorById,
-} = require('../controllers/sector');
-const {
+import express from 'express';
+
+import { loginUser } from '../controllers/auth';
+import { authMiddleware } from '../middleware/auth';
+import { createUser, deleteUser } from '../controllers/user';
+import { allSectors, createSector, putSectorById } from '../controllers/sector';
+import {
     createProduct,
     allProducts,
     productById,
     putProductById,
     deleteProduct,
-} = require('../controllers/products');
+} from '../controllers/products';
 
 const router = express.Router();
 
@@ -41,4 +38,4 @@ router.get('/sector/all', allSectors);
 router.post('/sector', createSector);
 router.put('/sector/:id', putSectorById);
 
-module.exports = router;
+export default router;

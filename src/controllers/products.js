@@ -1,4 +1,4 @@
-const ProductService = require('../services/productService');
+import ProductService from '../services/productService';
 
 const createProduct = async (req, res) => {
     try {
@@ -70,7 +70,7 @@ const deleteProduct = async (req, res) => {
     }
 };
 
-module.exports = {
+export {
     productById,
     allProducts,
     createProduct,
