@@ -15,6 +15,12 @@ module.exports = {
                 sourceType: 'script',
             },
         },
+        {
+            env: {
+                jest: true,
+            },
+            files: ['**/*.spec.js'],
+        },
     ],
     parserOptions: {
         ecmaVersion: 'latest',

@@ -8,6 +8,7 @@
     "dev": "nodemon --exec babel-node index.js",
     "lint": "eslint .",
     "lint:fixed": "eslint --fix .",
+    "test": "jest --coverage --coverageReporters=html --coverageDirectory=coverage",
     "clean": "rm -rf dist/",
     "clean-install": "rm -rf node_modules package-lock.json && npm i",
     "build": "npm run clean && mkdir -p dist/src && babel src -s -d dist/src && babel index.js -s -d dist"
@@ -28,9 +29,13 @@
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
     "@babel/preset-env": "^7.23.2",
+    "@types/jest": "^29.5.6",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.4.3",
     "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.0.1"
   }
 }
