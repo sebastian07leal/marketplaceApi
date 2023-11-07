@@ -1,8 +1,0 @@
-PGUSER="default"
-PGHOST="ep-round-wave-*******-pooler.us-east-1.postgres.vercel-storage.com"
-PGPASSWORD="*******"
-PGDATABASE="anyName"
-PGPORT=5432
-POSTGRES_URL="postgres://default:*******@ep-round-wave-*******-pooler.us-east-1.postgres.vercel-storage.com:5432/anyName"
-
-SECRET_KEY="*******"
