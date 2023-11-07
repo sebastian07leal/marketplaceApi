@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  postgresbd:
+    image: postgres:15
+    container_name: postgresbdcontainer
+    env_file: 
+      - ./.env.test
+    expose:
+      - 5432
+    volumes:
+      - ./dbInit/init.sql:/docker-entrypoint-initdb.d/initial.sql
+    ports:
+      - "5432:5432"
+
+  api:
+    build: .
+    container_name: apicontainer
+    depends_on:
+      - postgresbd
+    links:
+      - postgresbd
+    ports:
+      - "8080:8080"
+    env_file: 
+      - ./.env.test
+
+
+
+
+    

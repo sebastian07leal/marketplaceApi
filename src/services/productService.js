@@ -9,7 +9,7 @@ class ProductService {
     constructor() {
         try {
             this._client = new Pool({
-                connectionString: process.env.POSTGRES_URL + '?sslmode=require',
+                connectionString: process.env.POSTGRES_URL,
             });
         } catch (error) {
             error.message = 'DB connection error';
