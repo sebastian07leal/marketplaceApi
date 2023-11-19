@@ -26,6 +26,23 @@ services:
     env_file: 
       - ./.env.test
 
+  jenkins:
+    image: jenkins/jenkins:2.426.1-lts
+    container_name: jenkins_managed
+    environment:
+      - JAVA_OPTS=-Dhudson.model.DownloadService.noSignatureCheck=true
+    expose:
+      - 8084
+      - 8080
+      - 50000
+    volumes:
+      - ./jenkins_data:/var/jenkins_home
+    ports:
+      - "8084:8080"
+      - "50000:50000"
+    
+
+
 
 
 
